@@ -11,6 +11,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/meus" element={<MeusPoke />} />
         <Route path="/lista" element={<ListaPokemon />} />
+        <Route path="*" element={<Navigate to="/login" replace />}/>
       </Routes>
     </BrowserRouter>
     // <BrowserRouter>

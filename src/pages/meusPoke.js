@@ -1,5 +1,10 @@
 import React from "react";
+import Layout from "../layouts/layout";
 
 export default function MeusPoke() {
-  return <h1>Meus pokemons</h1>;
+  return (
+    <Layout>
+      <h1>Meus pokemons</h1>
+    </Layout>
+  );
 }
