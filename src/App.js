@@ -12,6 +12,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/meus" element={<MeusPoke />} />
         <Route path="/listar" element={<Listar />} />
+        <Route path="*" element={<Navigate to="/login" replace />}/>
       </Routes>
     </BrowserRouter>
     // <BrowserRouter>
