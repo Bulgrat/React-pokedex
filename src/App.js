@@ -1,26 +1,35 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
-import Login from "./pages/login";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Loginpage from "./pages/login";
 import MeusPoke from "./pages/meusPoke";
-import ListaPokemon from "./pages/listarPokemon";
+import Listar from "./pages/lista";
+import RegisterPage from "./pages/register";
 
-function App() {
+import { UserContext } from "./auth";
+
+export default function App() {
+  const { currentUser } = React.useContext(UserContext);
+
+  if (!currentUser) {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Loginpage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </BrowserRouter>
+    )
+  }
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Loginpage />} />
         <Route path="/meus" element={<MeusPoke />} />
-        <Route path="/lista" element={<ListaPokemon />} />
-        <Route path="*" element={<Navigate to="/login" replace />}/>
+        <Route path="/listar" element={<Listar />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<MeusPoke />} />
       </Routes>
     </BrowserRouter>
-    // <BrowserRouter>
-    //   <div className="App">
-    //     <h1>teste</h1>
-    //     <Login></Login>
-    //   </div>
-    // </BrowserRouter>
-  );
+  )
 }
-
-export default App;
