@@ -7,8 +7,17 @@ import RegisterPage from "./pages/register";
 
 import { UserContext } from "./auth";
 
+export const PkmContext = React.createContext({
+  pokemon: {
+    poke_id: "",
+    pokemon: "",
+    user_id: "",
+  }
+});
+
 export default function App() {
   const { currentUser } = React.useContext(UserContext);
+  const [currentPkm, pkmDispatch] = React.useReducer();
 
   if (!currentUser) {
     return (
@@ -19,7 +28,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
-    )
+    );
   }
   return (
     <BrowserRouter>
@@ -31,5 +40,5 @@ export default function App() {
         <Route path="/" element={<MeusPoke />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
