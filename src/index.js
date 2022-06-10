@@ -1,12 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+//Importação do BD
+import { ApolloProvider } from '@apollo/client';
+import client from './graphql/client';
+
+//Autenticação
+import AuthContext from './auth';
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <AuthContext>
+      <App />
+    </AuthContext>
+  </ApolloProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
