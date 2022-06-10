@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
 import Login from "./pages/login";
 import MeusPoke from "./pages/meusPoke";
-import ListaPokemon from "./pages/listarPokemon";
+import Listar from "./pages/listaTeste";
+
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/meus" element={<MeusPoke />} />
-        <Route path="/lista" element={<ListaPokemon />} />
+        <Route path="/listar" element={<Listar />} />
       </Routes>
     </BrowserRouter>
     // <BrowserRouter>
