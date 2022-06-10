@@ -12,9 +12,10 @@ export default function Navbar() {
                 <Link to='/' className='navbar-brand'>Meus pokemon</Link>
                 <ul className='navbar-nav me-auto flex-row'>
                     <li className='nav-item'>
-                        <Link className='nav-link' to="/lista">Lista</Link>
+                        <Link className='nav-link' to="/listar">Lista</Link>
                     </li>
                 </ul>
             </div>
-        </nav>);
+        </nav>
+    );
 }

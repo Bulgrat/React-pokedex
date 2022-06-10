@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../Layouts/layout';
+import Layout from '../layouts/layouts';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,5 +42,6 @@ export default function RegisterPage() {
                     </div>
                 </div>
             </div>
-        </Layout>);
+        </Layout>
+    );
 }

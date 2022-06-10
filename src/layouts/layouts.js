@@ -10,5 +10,6 @@ export default function Layout({ children, title }) {
             <main className='text-center' style={{ 'marginTop': '90px' }}>
                 {children}
             </main>
-        </>)
+        </>
+    )
 }

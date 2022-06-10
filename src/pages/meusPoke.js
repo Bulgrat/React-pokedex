@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../Layouts/layout";
 import { UserContext } from '../auth';
+import Layout from "../layouts/layouts";
 
 export default function MeusPoke() {
   const { currentUser } = React.useContext(UserContext);
@@ -8,6 +8,7 @@ export default function MeusPoke() {
   return (
     <Layout>
       <h1>Meus pokemons</h1>
+      <p>aaaa</p>
     </Layout>
   );
 }
