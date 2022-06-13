@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Loginpage from "./pages/login";
-import MeusPoke from "./pages/meusPoke";
-import Listar from "./pages/lista";
 import RegisterPage from "./pages/register";
 
 import { UserContext } from "./auth";
+import Home from "./pages/home";
+
+
 
 export default function App() {
   const { currentUser } = React.useContext(UserContext);
@@ -24,11 +25,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Loginpage />} />
-        <Route path="/meus" element={<MeusPoke />} />
-        <Route path="/listar" element={<Listar />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
-        <Route path="/" element={<MeusPoke />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )

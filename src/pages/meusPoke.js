@@ -1,14 +1,27 @@
 import React from "react";
 import { UserContext } from '../auth';
-import Layout from "../layouts/layouts";
 
-export default function MeusPoke() {
+export default function MeusPoke({ lista }) {
   const { currentUser } = React.useContext(UserContext);
 
+  function handleRemoveQueue() {
+    lista.pkmDispatch({ type: 'REMOVE_POKE' });
+  }
+
   return (
-    <Layout>
+    <div style={{ textAlign: "center", margin: 100 }}>
       <h1>Meus pokemons</h1>
-      <p>aaaa</p>
-    </Layout>
+
+      {lista.currentPkm.map((pokem, index) => {
+        return (
+          <label key={index}>
+            [ {pokem.name} ]
+          </label>
+        )
+      })}
+      <p>
+        <button onClick={handleRemoveQueue}>Limpar</button>
+      </p>
+    </div>
   );
 }

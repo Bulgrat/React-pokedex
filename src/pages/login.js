@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../layouts/layouts";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +26,7 @@ export default function LoginPage() {
   }
 
   return (
-    <Layout title="Login">
+    <>
       <div className="row">
         <div className="col-lg-4 col-10 mx-auto mx-lg-0">
           <div
@@ -66,6 +65,6 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

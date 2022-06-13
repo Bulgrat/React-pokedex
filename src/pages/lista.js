@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../layouts/layouts";
 
-export default function Listar() {
+export default function Listar({ lista }) {
   const [list, setList] = useState([]);
-  const [pokem, setPoke] = useState([]);
 
   async function fetchList() {
     await fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
@@ -17,33 +15,30 @@ export default function Listar() {
     fetchList();
   }, []);
 
+  function PokemonBtn({ pokemon, idp }) {
+    const [pokem, setPoke] = useState([]);
+    const name = pokemon.name;
+    // const poke_id = pokemon.url.substring(34, 37);
+    const poke_id = idp;
+
+    function handleAddQueue() {
+      lista.pkmDispatch({ type: "ADD_POKE", payload: { pokemon } });
+    }
+
+    return (
+      <button onClick={handleAddQueue}>{name}</button>
+    );
+  }
+
   return (
-    <Layout>
-      <div style={{ textAlign: "center" }}>
-        <table>
-          <thead>
-            <tr>
-              <th>Pokemons</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                {list.map(function (poke, idp) {
-                  return (
-                    <button onClick={() => setPoke(poke.name)} key={idp}>
-                      {poke.name}
-                    </button>
-                  );
-                })}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p>{pokem}</p>
-        {console.log(pokem)}
-        {/*<button onClick={handlePokeAdd}>Confirmar</button>*/}
-      </div>
-    </Layout>
+    <div style={{ textAlign: "center", margin: 5 }}>
+      {list.map((pokemon, idp) => {
+        return (
+          <>
+            <PokemonBtn key={idp} pokemon={pokemon} />
+          </>
+        );
+      })}
+    </div>
   );
 }
