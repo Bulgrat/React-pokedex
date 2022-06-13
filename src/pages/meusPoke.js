@@ -1,8 +1,6 @@
 import React from "react";
-import { UserContext } from '../auth';
 
 export default function MeusPoke({ lista }) {
-  const { currentUser } = React.useContext(UserContext);
 
   function handleRemoveQueue() {
     lista.pkmDispatch({ type: 'REMOVE_POKE' });

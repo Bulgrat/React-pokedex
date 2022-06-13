@@ -16,10 +16,7 @@ export default function Listar({ lista }) {
   }, []);
 
   function PokemonBtn({ pokemon, idp }) {
-    const [pokem, setPoke] = useState([]);
     const name = pokemon.name;
-    // const poke_id = pokemon.url.substring(34, 37);
-    const poke_id = idp;
 
     function handleAddQueue() {
       lista.pkmDispatch({ type: "ADD_POKE", payload: { pokemon } });
