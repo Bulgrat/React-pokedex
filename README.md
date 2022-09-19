@@ -14,4 +14,4 @@ Projeto hosteado no Azure Static Web Apps.
 
 CI/CD Github.
 
-[Link](https://blue-pebble-036d0de10.1.azurestaticapps.net/login)
+[Link](https://blue-pebble-036d0de10.1.azurestaticapps.net)
